@@ -10,8 +10,7 @@ db.execute <<-SQL
     id INTEGER PRIMARY KEY,
     name VARCHAR(30)
   );
-SQL 
-
+SQL
 
 db.execute <<-SQL
   CREATE TABLE entry (
