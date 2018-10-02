@@ -94,13 +94,22 @@ class MenuController
   end
 
   def search_entries
-    print "Search by name: "
-    name = gets.chomp
-    match = @address_book.find_entry(name)
-    system "clear"
-    if match
-      puts match.to_s
-      search_submenu(match)
+    print "Would you like an ordered list? y/n"
+    answer = gets.chomp
+    if answer == "y"
+      match_1 = @address_book.find_order
+      system "clear"
+    else
+      print "Then please search by name: "
+      name = gets.chomp
+      match_2 = @address_book.find_entry(name)
+      system "clear"
+    end
+    if match_1
+      puts match_1.to_s
+    elsif match_2
+      puts match_2.to_s
+      search_submenu(match_2)
     else
       puts "No match found for #{name}"
     end

@@ -16,6 +16,10 @@ class AddressBook < BlocRecord::Base
     Entry.where(name: name, address_book_id: self.id).first
   end
 
+  def find_order
+    Entry.order(name: :asc)
+  end
+
   def import_from_csv(file_name)
     # Implementation goes here
     csv_text = File.read(file_name)
